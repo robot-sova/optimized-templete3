@@ -1,6 +1,6 @@
 ---
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import Megamenu from '../components/mega-menu.astro';
+import Megamenu from '../components/Megamenu.jsx';
 import Footer from '../components/Footer.astro';
 import type { BreadcrumbItem } from '../components/Breadcrumbs.astro';
 
@@ -58,7 +58,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
 		<script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)} />
 	</head>
 	<body>
-		<Megamenu client:idle/>
+		<Megamenu client:load/>
 		{breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
 		<main style="margin-top: 4rem;">
 			<slot />
