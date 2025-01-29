@@ -1,0 +1,44 @@
+---
+const siteUrl = import.meta.env.SITE ?? 'http://localhost:4321';
+---
+
+<footer>
+  <nav>
+    <ul>
+      <li>
+        <a href="/sitemap-index.xml" class="sitemap-link">Sitemap</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sitemap-link {
+    color: #3245ff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .sitemap-link:hover {
+    color: #bc52ee;
+  }
+</style>
