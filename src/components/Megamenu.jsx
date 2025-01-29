@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MegaMenu.css"; // Import CSS
+import "./MegaMenu.css"; // Import CSS for styling
 
 export const Megamenu = () => {
   const [isSticky, setIsSticky] = useState(false);
