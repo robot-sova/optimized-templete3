@@ -1,6 +1,7 @@
 ---
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import MegaMenu from '../components/MegaMenu.jsx';
+import Credentials from '../components/Credentials.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Footer from '../components/Footer.astro';
 import type { BreadcrumbItem } from '../components/Breadcrumbs.astro';
 
@@ -59,6 +60,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
 	</head>
 	<body>
 		<MegaMenu client:idle/>
+		<Credentials />
 		{breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
 		<main style="margin-top: 4rem;">
 			<slot />
