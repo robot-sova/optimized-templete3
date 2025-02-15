@@ -190,10 +190,10 @@
          <div class="column">
           
           <a> <img src="/svg/fridge.svg" loading="lazy" alt="">Refrigerator</a>
-           <a href="#"><img src="/svg/freezer.svg" loading="lazy" alt="">Freezer</a>
-           <a href="#"><img src="/svg/dishwasher.svg" loading="lazy" alt="">Dishwasher</a>
-           <a href="#"><img src="/svg/dryer.svg" loading="lazy" alt="">Dryer</a>
-           <a href="#"><img src="/svg/oven.svg" loading="lazy" alt="">Oven</a>
+           <a href="#"><img src="/svg/freezer.svg" loading="lazy" alt="" width="14" height="14">Freezer</a>
+           <a href="#"><img src="/svg/dishwasher.svg" loading="lazy" alt="" width="14" height="14">Dishwasher</a>
+           <a href="#"><img src="/svg/dryer.svg" loading="lazy" alt="" width="14" height="14">Dryer</a>
+           <a href="#"><img src="/svg/oven.svg" loading="lazy" alt="" width="14" height="14">Oven</a>
          </div>
          <div class="column">
            <a href="#">Microwave</a>
@@ -373,3 +373,40 @@
  }
 </style>
 
+
+<script defer src="your-script.js">
+const header = document.getElementById('header');
+let lastScrollY = 0;
+let ticking = false;
+
+function handleScroll() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            if (window.scrollY > lastScrollY) {
+                header.classList.add('fixed', 'shrink');
+            } else {
+                header.classList.remove('fixed', 'shrink');
+            }
+            lastScrollY = window.scrollY;
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+window.addEventListener('scroll', handleScroll);
+<!---lazy load drop down--->
+document.querySelectorAll(".dropdown").forEach((dropdown) => {
+    let timeout;
+    dropdown.addEventListener("mouseenter", () => {
+        clearTimeout(timeout);
+        dropdown.querySelector(".dropdown-content").style.opacity = "1";
+        dropdown.querySelector(".dropdown-content").style.visibility = "visible";
+    });
+    dropdown.addEventListener("mouseleave", () => {
+        timeout = setTimeout(() => {
+            dropdown.querySelector(".dropdown-content").style.opacity = "0";
+            dropdown.querySelector(".dropdown-content").style.visibility = "hidden";
+        }, 200); // Small delay to avoid flickering
+    });
+});
+</script>
