@@ -374,7 +374,7 @@
 </style>
 
 
-<script>
+<script defer src="your-script.js">
 const header = document.getElementById('header');
 let lastScrollY = 0;
 let ticking = false;
@@ -396,17 +396,17 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 <!---lazy load drop down--->
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
-    dropdown.addEventListener("mouseover", () => {
-        const content = dropdown.querySelector(".dropdown-content");
-        if (content) {
-            content.style.display = "block";
-        }
+    let timeout;
+    dropdown.addEventListener("mouseenter", () => {
+        clearTimeout(timeout);
+        dropdown.querySelector(".dropdown-content").style.opacity = "1";
+        dropdown.querySelector(".dropdown-content").style.visibility = "visible";
     });
     dropdown.addEventListener("mouseleave", () => {
-        const content = dropdown.querySelector(".dropdown-content");
-        if (content) {
-            content.style.display = "none";
-        }
+        timeout = setTimeout(() => {
+            dropdown.querySelector(".dropdown-content").style.opacity = "0";
+            dropdown.querySelector(".dropdown-content").style.visibility = "hidden";
+        }, 200); // Small delay to avoid flickering
     });
 });
 </script>
