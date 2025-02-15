@@ -376,23 +376,25 @@
 
 <script>
 const header = document.getElementById('header');
-const stickyOffset = header.offsetTop;
-let isScrolling = false;
+let lastScrollY = 0;
+let ticking = false;
 
-window.addEventListener('scroll', () => {
-   if (!isScrolling) {
-      requestAnimationFrame(() => {
-         if (window.pageYOffset > stickyOffset) {
-            header.classList.add('fixed', 'shrink');
-         } else {
-            header.classList.remove('fixed', 'shrink');
-         }
-         isScrolling = false;
-      });
-      isScrolling = true;
-   }
-});
-<!---lazy loading --->
+function handleScroll() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            if (window.scrollY > lastScrollY) {
+                header.classList.add('fixed', 'shrink');
+            } else {
+                header.classList.remove('fixed', 'shrink');
+            }
+            lastScrollY = window.scrollY;
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+window.addEventListener('scroll', handleScroll);
+<!---lazy load drop down--->
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
     dropdown.addEventListener("mouseover", () => {
         const content = dropdown.querySelector(".dropdown-content");
