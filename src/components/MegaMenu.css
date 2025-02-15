@@ -1,4 +1,4 @@
-/* Global Reset */
+/* General Styles */
 * {
   box-sizing: border-box;
 }
@@ -74,12 +74,12 @@ body {
   background-color: red;
 }
 
-/* Dropdown Content - Full Width & Starts from the Left */
+/* Dropdown Content - Lazy Load */
 .dropdown-content {
-  position: fixed; /* Make it fixed so it covers the full width */
-  top: 100px; /* Adjust based on navbar height */
+  position: fixed; /* Full width */
+  top: 50px;
   left: 0;
-  width: 100vw; /* Full width of the screen */
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.87);
   backdrop-filter: blur(2px);
   z-index: 1001;
@@ -88,16 +88,13 @@ body {
   visibility: hidden;
   transform: translateY(-10px);
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
-  display: none;
 }
 
-/* Show Dropdown on Hover */
+/* When dropdown is active */
 .dropdown:hover .dropdown-content {
-  display: flex;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  justify-content: center;
 }
 
 /* Dropdown Title */
