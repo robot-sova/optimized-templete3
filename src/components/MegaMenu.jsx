@@ -47,19 +47,19 @@ const MegaMenu = () => {
               <div className="row">
                 <div className="column">
                   <a href="#">
-                    <img src="/svg/fridge.svg" alt="" /> Refrigerator
+                    <img src="/svg/fridge.svg" alt="" loading="lazy" width="14" height="14"/> Refrigerator
                   </a>
                   <a href="#">
-                    <img src="/svg/freezer.svg" alt="" /> Freezer
+                    <img src="/svg/freezer.svg" alt="" loading="lazy" width="14" height="14"/> Freezer
                   </a>
                   <a href="#">
-                    <img src="/svg/dishwasher.svg" alt="" /> Dishwasher
+                    <img src="/svg/dishwasher.svg" alt=""loading="lazy"  width="14" height="14"/> Dishwasher
                   </a>
                   <a href="#">
-                    <img src="/svg/dryer.svg" alt="" /> Dryer
+                    <img src="/svg/dryer.svg" alt=""loading="lazy" width="14" height="14" /> Dryer
                   </a>
                   <a href="#">
-                    <img src="/svg/oven.svg" alt="" /> Oven
+                    <img src="/svg/oven.svg" alt=""loading="lazy"  width="14" height="14"/> Oven
                   </a>
                 </div>
                 <div className="column">
