@@ -375,16 +375,21 @@
 
 
 <script>
- const header = document.getElementById('header');
- const logo = document.querySelector('.logo');
- const stickyOffset = header.offsetTop;
+const header = document.getElementById('header');
+const stickyOffset = header.offsetTop;
+let isScrolling = false;
 
-
- window.addEventListener('scroll', () => {
-   if (window.pageYOffset > stickyOffset) {
-     header.classList.add('fixed', 'shrink');
-   } else {
-     header.classList.remove('fixed', 'shrink');
+window.addEventListener('scroll', () => {
+   if (!isScrolling) {
+      requestAnimationFrame(() => {
+         if (window.pageYOffset > stickyOffset) {
+            header.classList.add('fixed', 'shrink');
+         } else {
+            header.classList.remove('fixed', 'shrink');
+         }
+         isScrolling = false;
+      });
+      isScrolling = true;
    }
- });
+});
 </script>
