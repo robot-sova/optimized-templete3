@@ -57,6 +57,7 @@
  .dropdown-content {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.87);
+  backdrop-filter: blur(2px); /* Reduced blur for performance */
   width: 100%;
   left: 0;
   z-index: 1;
