@@ -63,14 +63,16 @@
   padding: 0 100px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-  backdrop-filter: blur(4px); /* Reduce blur to improve performance */
+  transform: translateY(-10px); /* Prevents layout shifts */
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .dropdown:hover .dropdown-content {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
+
 
 /* Style for dropdown links with icons */
 .dropdown-content a {
