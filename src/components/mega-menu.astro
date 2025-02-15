@@ -152,14 +152,14 @@
   /* Logo Transition */
   .logo {
    width: 150px; /* Default Width */
-   transition: width 0.3s ease; /* Smooth resizing */
+   transition: transform 0.2s ease-out; /* Smooth resizing */
  }
 
 
- .shrink .logo {
-   width: 90px; /* Width when scrolled */
-  
- }
+.shrink .logo {
+   transform: scale(0.8);
+}
+
  a.logo {
  margin: 5px 50px 0 20px !important;
 }
