@@ -9,10 +9,14 @@
  }
 
 
- .navbar {
-   overflow: hidden;
-   background-color: #000;
-   font-family: Arial, Helvetica, sans-serif;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
 

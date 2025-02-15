@@ -34,7 +34,7 @@ const MegaMenu = () => {
           <a className="logo" href="#home">
             <img
               alt="Logo"
-              src="/images/same-day-appalince-repair-logo-2.webp"
+              src="/logo.webp"
             />
           </a>
 
