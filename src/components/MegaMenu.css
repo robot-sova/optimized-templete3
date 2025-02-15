@@ -56,6 +56,7 @@ body {
   position: relative;
 }
 
+/* Dropdown Button */
 .dropbtn {
   font-size: 16px;
   border: none;
@@ -73,15 +74,16 @@ body {
   background-color: red;
 }
 
-/* Dropdown Content */
+/* Dropdown Content - Full Width & Starts from the Left */
 .dropdown-content {
-  position: absolute;
+  position: fixed; /* Make it fixed so it covers the full width */
+  top: 50px; /* Adjust based on navbar height */
+  left: 0;
+  width: 100vw; /* Full width of the screen */
   background-color: rgba(0, 0, 0, 0.87);
   backdrop-filter: blur(2px);
-  width: 100%;
-  left: 0;
-  z-index: 1;
-  padding: 0 100px;
+  z-index: 1001;
+  padding: 20px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -91,14 +93,40 @@ body {
 
 /* Show Dropdown on Hover */
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  justify-content: center;
+}
+
+/* Dropdown Title */
+.dropdown-title {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Dropdown Content Row */
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Dropdown Columns */
+.column {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Dropdown Links */
-.dropdown-content a {
+.column a {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -108,48 +136,10 @@ body {
 }
 
 /* Icons in Dropdown */
-.dropdown-content a img {
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-}
-
-/* Dropdown Columns */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-}
-
-.column a {
-  float: none;
-  color: #fff;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.column a:hover {
-  background-color: red;
-}
-
-/* Clear Floats */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-  .dropdown-content {
-    padding: 0;
-  }
-
-  .logo {
-    display: none;
-  }
+.column a img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 /* Phone Number */
@@ -160,4 +150,19 @@ body {
   font-weight: bold;
   color: white;
   text-decoration: none;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .dropdown-content {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .logo {
+    display: none;
+  }
 }
