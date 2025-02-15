@@ -34,7 +34,7 @@ const MegaMenu = () => {
           <a className="logo" href="#home">
             <img
               alt="Logo"
-              src="/logo.webp"
+              src="/logo.webp" width="175" height="70"
             />
           </a>
 
