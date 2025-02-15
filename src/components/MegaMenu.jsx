@@ -1,20 +1,28 @@
 import React, { useEffect } from "react";
-import "./MegaMenu.css"; // Import your existing CSS
+import "./MegaMenu.css";
 
 const MegaMenu = () => {
   useEffect(() => {
     const header = document.getElementById("header");
-    const stickyOffset = header.offsetTop;
+    let lastScrollY = 0;
+    let ticking = false;
 
-    const handleScroll = () => {
-      if (window.pageYOffset > stickyOffset) {
-        header.classList.add("fixed", "shrink");
-      } else {
-        header.classList.remove("fixed", "shrink");
+    function handleScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (window.scrollY > lastScrollY) {
+            header.classList.add("fixed", "shrink");
+          } else {
+            header.classList.remove("fixed", "shrink");
+          }
+          lastScrollY = window.scrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
