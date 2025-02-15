@@ -81,9 +81,10 @@
  /* Style for the SVG icon */
  .dropdown-content a img {
  
-   width: 50px; /* Set icon width */
-   height: 50px; /* Set icon height */
+   width: 25px; /* Set icon width */
+   height: 25px; /* Set icon height */
    display: inline-block; /* Ensure inline layout */
+   margin:0 10px -8px 0;
  }
 /* Show only when hovered */
 .dropdown:hover .dropdown-content {
@@ -172,6 +173,11 @@
      display: none;
    }
  }
+ @media screen and (max-width: 768px) {
+  .dropdown-content a img {
+    display: none; /* Hide images in dropdown on mobile */
+  }
+}
 </style>
 
 <div id="header" class="sticky">
