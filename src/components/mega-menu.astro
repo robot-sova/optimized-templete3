@@ -65,6 +65,8 @@
    transition: opacity 0.4s ease, visibility 0.4s ease;
    backdrop-filter: blur(6px); /* Blur effect behind the menu */
  }
+
+ 
 /* Style for dropdown links with icons */
 .dropdown-content a {
    display: flex;
@@ -83,10 +85,10 @@
    height: 50px; /* Set icon height */
    display: inline-block; /* Ensure inline layout */
  }
+/* Show only when hovered */
 .dropdown:hover .dropdown-content {
-   opacity: 1;
-   visibility: visible;
- }
+   display: block;
+}
  @media screen and (max-width: 768px) {
    .dropdown-content {
        padding: 0; /* Remove padding for mobile */
