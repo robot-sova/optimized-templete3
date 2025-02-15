@@ -1,216 +1,85 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./MegaMenu.css";
 
 const MegaMenu = () => {
-  useEffect(() => {
-    const header = document.getElementById("header");
-    let lastScrollY = 0;
-    let ticking = false;
+  const [isSticky, setSticky] = useState(false);
 
-    function handleScroll() {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          if (window.scrollY > lastScrollY) {
-            header.classList.add("fixed", "shrink");
-          } else {
-            header.classList.remove("fixed", "shrink");
-          }
-          lastScrollY = window.scrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
+  useEffect(() => {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 0);
+    };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div id="header" className="sticky">
-      <div className="navbar">
-        {/* First Row */}
-        <div className="first-row">
-          <a className="logo" href="#home">
-            <img
-              alt="Logo"
-              src="/logo.webp" width="175" height="70"
-            />
-          </a>
+    <div id="header" className={`navbar ${isSticky ? "fixed shrink" : ""}`}>
+      {/* Logo */}
+      <a className="logo" href="#home">
+        <img alt="Logo" src="/logo.webp" width="157" height="70" />
+      </a>
 
-          {/* Home Dropdown */}
-          <div className="dropdown">
-            <button className="dropbtn">Home</button>
-            <div className="dropdown-content">
-              <h3 style={{ color: "#fff" }}>Home Appliances We Repair</h3>
-              <div className="transparent"></div>
-              <div className="row">
-                <div className="column">
-                  <a href="#">
-                    <img src="/svg/fridge.svg" alt="" loading="lazy" width="14" height="14"/> Refrigerator
-                  </a>
-                  <a href="#">
-                    <img src="/svg/freezer.svg" alt="" loading="lazy" width="14" height="14"/> Freezer
-                  </a>
-                  <a href="#">
-                    <img src="/svg/dishwasher.svg" alt=""loading="lazy"  width="14" height="14"/> Dishwasher
-                  </a>
-                  <a href="#">
-                    <img src="/svg/dryer.svg" alt=""loading="lazy" width="14" height="14" /> Dryer
-                  </a>
-                  <a href="#">
-                    <img src="/svg/oven.svg" alt=""loading="lazy"  width="14" height="14"/> Oven
-                  </a>
-                </div>
-                <div className="column">
-                  <a href="#">Microwave</a>
-                  <a href="#">Cooktop</a>
-                  <a href="#">Range Hood</a>
-                  <a href="#">Ice Machine</a>
-                  <a href="#">Slushie Machine</a>
-                </div>
-                <div className="column">
-                  <a href="#">Walk-in Cooler</a>
-                  <a href="#">Walk-in Freezer</a>
-                  <a href="#">Showcase Refrigerator</a>
-                </div>
-              </div>
+      {/* Dropdown Menu */}
+      <div className="dropdown">
+        <button className="dropbtn">Home</button>
+        <div className="dropdown-content">
+          <h3 style={{ color: "#fff" }}>Home Appliances We Repair</h3>
+          <div className="row">
+            <div className="column">
+              <a href="#"><img src="/svg/fridge.svg" loading="lazy" alt="" width="14" height="14" /> Refrigerator</a>
+              <a href="#"><img src="/svg/freezer.svg" loading="lazy" alt="" width="14" height="14" /> Freezer</a>
+              <a href="#"><img src="/svg/dishwasher.svg" loading="lazy" alt="" width="14" height="14" /> Dishwasher</a>
+              <a href="#"><img src="/svg/dryer.svg" loading="lazy" alt="" width="14" height="14" /> Dryer</a>
+              <a href="#"><img src="/svg/oven.svg" loading="lazy" alt="" width="14" height="14" /> Oven</a>
+            </div>
+            <div className="column">
+              <a href="#">Microwave</a>
+              <a href="#">Cooktop</a>
+              <a href="#">Range Hood</a>
+              <a href="#">Ice Machine</a>
+              <a href="#">Slushie Machine</a>
+            </div>
+            <div className="column">
+              <a href="#">Walk-in Cooler</a>
+              <a href="#">Walk-in Freezer</a>
+              <a href="#">Showcase Refrigerator</a>
             </div>
           </div>
-
-          {/* Commercial Dropdown */}
-          <div className="dropdown">
-            <button className="dropbtn">Commercial</button>
-            <div className="dropdown-content">
-              <h3 style={{ color: "#fff" }}>Commercial Appliances We Repair</h3>
-              <hr />
-              <div className="transparent"></div>
-              <div className="row">
-                <div className="column">
-                  <a href="#">
-                    <img src="/svg/fridge.svg" alt="" /> Refrigerator
-                  </a>
-                  <a href="#">
-                    <img src="/svg/freezer.svg" alt="" /> Freezer
-                  </a>
-                  <a href="#">
-                    <img src="/svg/dishwasher.svg" alt="" /> Dishwasher
-                  </a>
-                  <a href="#">
-                    <img src="/svg/dryer.svg" alt="" /> Dryer
-                  </a>
-                  <a href="#">
-                    <img src="/svg/oven.svg" alt="" /> Oven
-                  </a>
-                </div>
-                <div className="column">
-                  <a href="#">Microwave</a>
-                  <a href="#">Cooktop</a>
-                  <a href="#">Range Hood</a>
-                  <a href="#">Ice Machine</a>
-                  <a href="#">Slushie Machine</a>
-                </div>
-                <div className="column">
-                  <a href="#">Walk-in Cooler</a>
-                  <a href="#">Walk-in Freezer</a>
-                  <a href="#">Showcase Refrigerator</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Areas Dropdown */}
-          <div className="dropdown">
-            <button className="dropbtn">Areas</button>
-            <div className="dropdown-content">
-              <div className="transparent"></div>
-              <div className="row">
-                <div className="column">
-                  <a href="#">Los Angeles</a>
-                  <a href="#">Beverly Hills</a>
-                  <a href="#">Pasadena</a>
-                  <a href="#">Santa Monica</a>
-                  <a href="#">Glendale</a>
-                </div>
-                <div className="column">
-                  <a href="#">Orange County</a>
-                  <a href="#">Long Beach</a>
-                  <a href="#">West Hollywood</a>
-                  <a href="#">Torrance</a>
-                  <a href="#">Sherman Oaks</a>
-                </div>
-                <div className="column">
-                  <a href="#">Burbank</a>
-                  <a href="#">Encino</a>
-                  <a href="#">Culver City</a>
-                  <a href="#">Anaheim</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Brands Dropdown */}
-          <div className="dropdown">
-            <button className="dropbtn">Brands</button>
-            <div className="dropdown-content">
-              <div className="transparent"></div>
-              <div className="row">
-                <div className="column">
-                  <a href="#">LG</a>
-                  <a href="#">Samsung</a>
-                  <a href="#">Whirlpool</a>
-                  <a href="#">Bosch</a>
-                  <a href="#">GE</a>
-                </div>
-                <div className="column">
-                  <a href="#">Sub-Zero</a>
-                  <a href="#">Wolf</a>
-                  <a href="#">Thermador</a>
-                  <a href="#">Viking</a>
-                  <a href="#">Kenmore</a>
-                </div>
-                <div className="column">
-                  <a href="#">Miele</a>
-                  <a href="#">Dacor</a>
-                  <a href="#">Fisher & Paykel</a>
-                  <a href="#">Monogram</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Prices Dropdown */}
-          <div className="dropdown">
-            <button className="dropbtn">Prices</button>
-            <div className="dropdown-content">
-              <div className="row">
-                <div className="column">
-                  <a href="#">Refrigerator Repair</a>
-                  <a href="#">Oven Repair</a>
-                  <a href="#">Dishwasher Repair</a>
-                  <a href="#">Dryer Repair</a>
-                </div>
-                <div className="column">
-                  <a href="#">Washer Repair</a>
-                  <a href="#">Microwave Repair</a>
-                  <a href="#">Cooktop Repair</a>
-                  <a href="#">Range Hood Repair</a>
-                </div>
-                <div className="column">
-                  <a href="#">Get a Quote</a>
-                  <a href="#">Same Day Pricing</a>
-                  <a href="#">Custom Requests</a>
-                </div>
-              </div> 
-            </div>
-          </div>
-
-          {/* Phone Number */}
-          <a href="#top" className="phone-number">
-            (323) 870-4790
-          </a>
         </div>
       </div>
+
+      {/* More Dropdowns */}
+      <div className="dropdown">
+        <button className="dropbtn">Commercial</button>
+        <div className="dropdown-content">
+          <h3 style={{ color: "#fff" }}>Commercial Appliances We Repair</h3>
+          <div className="row">
+            <div className="column">
+              <a href="#"><img src="/svg/fridge.svg" alt="" /> Refrigerator</a>
+              <a href="#"><img src="/svg/freezer.svg" alt="" /> Freezer</a>
+              <a href="#"><img src="/svg/dishwasher.svg" alt="" /> Dishwasher</a>
+              <a href="#"><img src="/svg/dryer.svg" alt="" /> Dryer</a>
+              <a href="#"><img src="/svg/oven.svg" alt="" /> Oven</a>
+            </div>
+            <div className="column">
+              <a href="#">Microwave</a>
+              <a href="#">Cooktop</a>
+              <a href="#">Range Hood</a>
+              <a href="#">Ice Machine</a>
+              <a href="#">Slushie Machine</a>
+            </div>
+            <div className="column">
+              <a href="#">Walk-in Cooler</a>
+              <a href="#">Walk-in Freezer</a>
+              <a href="#">Showcase Refrigerator</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Phone Number */}
+      <a href="#top" className="phone-number">(323) 870-4790</a>
     </div>
   );
 };
