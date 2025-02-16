@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
   /* Dark overlay box with blur effect */
@@ -21,6 +22,7 @@
     border-radius: 10px;
     color: white;
     max-width: 80%;
+    
   }
   
   /* Heading styling */
@@ -32,7 +34,6 @@
   .overlay p {
     font-size: 1.2rem;
     margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
   }
   
   /* Responsive adjustments */

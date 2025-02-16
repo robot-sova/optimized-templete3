@@ -62,7 +62,7 @@ export const TabsAccordion = () => {
         border: "1px solid #ccc",
         borderRadius: "5px",
         overflow: "hidden",
-        fontFamily: "Arial, sans-serif",
+
       }}
     >
       {/* Desktop Tabs Layout */}
