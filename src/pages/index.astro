@@ -1,6 +1,7 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { TabsAccordion } from '../components/TabsAccordion.jsx'
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -28,6 +29,7 @@ const breadcrumbs = [
 	structuredData={structuredData}
 	breadcrumbs={breadcrumbs}
 >
+
 	<p>
 	Our range of expertise encompasses appliance diagnostics, appliance maintenance, appliance repair, and appliance installation services, covering a diverse array of residential and commercial appliances across Orange County, CA. Whether it's refrigerators, freezers, ice makers, washers, dryers, ranges, stoves, ovens, cook-tops, wine coolers, microwaves, dishwashers, garbage disposals, or BBQs, we have you covered.
 
@@ -72,4 +74,6 @@ Our repair process is grounded in transparency and integrity. We prioritize hone
 
 You may refer to the price list on our website to get an idea of what it might cost. While our price list offers a preliminary estimate, remember that only a qualified technician can accurately diagnose the issue with your appliance. Often, what a customer assumes to be the problem can turn out to be something completely different, ranging from a basic issue like a malfunctioning outlet to more complex problems like a faulty compressor.
 </p>
+
+<TabsAccordion client:visible/>
 </Layout>
