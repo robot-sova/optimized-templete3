@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ParallaxHeader.css";
 
 const ParallaxHeader = () => {
+  const [heading, setHeading] = useState("Same Day Appliance Repair");
+
+  useEffect(() => {
+    const handleInput = (e) => {
+      setHeading(e.target.innerText);
+    };
+
+    const preventEnterKey = (e) => {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    window.addEventListener("keydown", preventEnterKey);
+
+    return () => {
+      window.removeEventListener("keydown", preventEnterKey);
+    };
+  }, []);
+
   return (
-    <header className="parallax-header">
-      <div className="overlay">
-        <h1 className="fade-in">Same Day Appliance Repair</h1>
-        <p className="fade-in">Need fast, reliable appliance repair? Look no further! Our team offers same-day, expert repair services for all major home and commercial appliances, including refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, microwaves, ice machines, fireplaces, BBQ grills, cooktops, range hoods, walk-in coolers, HVAC systems, and more.<br></br>
-</p>
-      </div>
-    </header>
+    <div className="gold-text-container">
+      <h1
+        className="gold-title"
+        contentEditable
+        data-heading={heading}
+        onInput={(e) => setHeading(e.target.innerText)}
+      >
+        {heading}
+      </h1>
+    </div>
   );
 };
 
