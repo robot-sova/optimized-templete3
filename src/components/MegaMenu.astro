@@ -53,18 +53,29 @@
 
 
  .dropdown-content {
-   display: block;
-   position: absolute;
-   background-color: rgba(0, 0, 0, 0.87);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  left: 0;
+  z-index: 1;
+  padding: 0 100px;
+  
+  /* Initially hidden */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* Start slightly above */
+  
+  /* Add smooth transition */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
+}
 
-   width: 100%;
-   left: 0;
-   z-index: 1;
-   padding: 0 100px 0 100px;
-   display: none;
-   transition: opacity 0.4s ease, visibility 0.4s ease;
-   backdrop-filter: blur(2px); /* Blur effect behind the menu */
- }
+/* When hovering, make it visible gradually */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Move to normal position */
+}
+
 
  
 /* Style for dropdown links with icons */
@@ -101,11 +112,6 @@
    background:;
    padding: 16px;
    color: white;
- }
-
-
- .dropdown:hover .dropdown-content {
-   display: block;
  }
 
 
@@ -184,6 +190,7 @@
 <div class="navbar">
  <!-- First Row -->
  <div class="first-row">
+   <a class="logo"  href="#home"><img alt="Logo" src="/logo.webp" width="157" height="70" /></a>
    <!-- Home Dropdown -->
    <div class="dropdown">
      <button class="dropbtn">Home</button>
