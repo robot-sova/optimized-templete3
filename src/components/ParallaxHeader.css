@@ -3,29 +3,48 @@ html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-/* Background */
-body {
-    background: radial-gradient(ellipse at center, #443501 0%, #000000 100%);
+/* Parallax Background */
+.parallax-container {
+    height: 100vh;
+    width: 100%;
+    background: url('https://samedayappliance.repair/dryer-repair/dryer-page_header_photos.webp') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Parallax Effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Overlay to enhance text readability */
+.parallax-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark Overlay */
+    z-index: 1;
 }
 
 /* Centering Container */
 .gold-text-container {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
+    text-align: center;
 }
 
 /* Gold Text Styling */
 .gold-title {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
-    font-size: calc(5svw + 0.5rem);
-    font-weight: 400;
+    font-size: calc(5vw + 0.5rem);
+    font-weight: 700;
     text-align: center;
-    position: relative;
     margin: 0;
     background: linear-gradient(to bottom, 
         #cfc09f 27%, 
@@ -59,6 +78,6 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .gold-title {
-        font-size: calc(10vw + 0.5rem);
+        font-size: calc(8vw + 0.5rem);
     }
 }

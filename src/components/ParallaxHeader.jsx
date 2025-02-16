@@ -24,15 +24,17 @@ const ParallaxHeader = () => {
   }, []);
 
   return (
-    <div className="gold-text-container">
-      <h1
-        className="gold-title"
-        contentEditable
-        data-heading={heading}
-        onInput={(e) => setHeading(e.target.innerText)}
-      >
-        {heading}
-      </h1>
+    <div className="parallax-container">
+      <div className="gold-text-container">
+        <h1
+          className="gold-title"
+          contentEditable
+          data-heading={heading}
+          onInput={(e) => setHeading(e.target.innerText)}
+        >
+          {heading}
+        </h1>
+      </div>
     </div>
   );
 };
