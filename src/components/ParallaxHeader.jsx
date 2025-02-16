@@ -5,8 +5,8 @@ const ParallaxHeader = () => {
   return (
     <header className="parallax-header">
       <div className="overlay">
-        <h1>Same Day Dryer Repair</h1>
-        <p>Fast & Reliable Service</p>
+        <h1 className="fade-in">Same Day Dryer Repair</h1>
+        <p className="fade-in">Fast & Reliable Service</p>
       </div>
     </header>
   );
