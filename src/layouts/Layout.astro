@@ -41,6 +41,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<link rel="preload" href="/img/logo.webp" as="image">
+		<!-- Preload Poppins font --><link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type="text/css"></noscript>
 		<meta name="generator" content={Astro.generator} />
 		
 		<title>{title}</title>
@@ -71,13 +72,39 @@ const finalStructuredData = structuredData || defaultStructuredData;
 </html>
 
 <style>
-	html,
+	/* Global font settings */
+html {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px; /* Default size */
+  line-height: 1.6;
+  color: #333; /* Adjust based on design */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* Paragraphs & text */
+p {
+  font-weight: 300;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Buttons */
+button, .btn {
+  font-weight: 600;
+  text-transform: uppercase;
+}
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
 		background:#000000;
 		color:#ffffff;
+		
 	}
 	p{font-size: 10em; /* Responsive font size */}
 </style>
