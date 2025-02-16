@@ -1,7 +1,8 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ParallaxHeader from "../components/ParallaxHeader";
 import { TabsAccordion } from '../components/TabsAccordion.jsx'
+
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -29,6 +30,7 @@ const breadcrumbs = [
 	structuredData={structuredData}
 	breadcrumbs={breadcrumbs}
 >
+<ParallaxHeader client:idle/>
 
 	<p>
 	Our range of expertise encompasses appliance diagnostics, appliance maintenance, appliance repair, and appliance installation services, covering a diverse array of residential and commercial appliances across Orange County, CA. Whether it's refrigerators, freezers, ice makers, washers, dryers, ranges, stoves, ovens, cook-tops, wine coolers, microwaves, dishwashers, garbage disposals, or BBQs, we have you covered.

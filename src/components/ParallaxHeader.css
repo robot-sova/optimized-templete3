@@ -1,0 +1,57 @@
+/* Parallax effect */
+.parallax-header {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Adjust height as needed */
+    background-image: url("https://samedayappliance.repair/dryer-repair/dryer-page_header_photos.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Dark overlay box with blur effect */
+  .overlay {
+    background: rgba(0, 0, 0, 0.6); /* Black with transparency */
+    backdrop-filter: blur(8px); /* Blurs background image */
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    max-width: 80%;
+  }
+  
+  /* Heading styling */
+  .overlay h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .overlay p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .parallax-header {
+      height: 50vh; /* Adjust for smaller screens */
+      background-attachment: scroll; /* Disable parallax on mobile for performance */
+    }
+  
+    .overlay {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .overlay h1 {
+      font-size: 2rem;
+    }
+  
+    .overlay p {
+      font-size: 1rem;
+    }
+  }
+  
