@@ -1,39 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./ParallaxHeader.css";
+import React from "react";
+import "./ParallaxHeader.css"; // Import the CSS file
 
-const ParallaxHeader = () => {
-  const [heading, setHeading] = useState("Same Day Appliance Repair");
-
-  useEffect(() => {
-    const handleInput = (e) => {
-      setHeading(e.target.innerText);
-    };
-
-    const preventEnterKey = (e) => {
-      if (e.key === "Enter" || e.keyCode === 13) {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    window.addEventListener("keydown", preventEnterKey);
-
-    return () => {
-      window.removeEventListener("keydown", preventEnterKey);
-    };
-  }, []);
-
+export const ParallaxHeader = () => {
   return (
-    <div className="parallax-container">
-      <div className="gold-text-container">
-        <h1
-          className="gold-title"
-          contentEditable
-          data-heading={heading}
-          onInput={(e) => setHeading(e.target.innerText)}
-        >
-          {heading}
-        </h1>
+    <div className="relative w-full h-screen">
+      {/* Background Image with Parallax Effect */}
+      <div
+        className="parallax-bg"
+        style={{
+          backgroundImage:
+            "url('https://www.baycityappliance.com/wp-content/uploads/2023/05/kitchen-appliances-installed-in-kitchen-mountain-view-ca.png')",
+        }}
+      ></div>
+
+      {/* Dark Overlay */}
+      <div className="overlay"></div>
+
+      {/* Centered Content */}
+      <div className="content-container">
+        <h1>Same Day Appliance Repair</h1>
+        <p>Fast, Reliable, and Affordable Appliance Repair – Trusted by Thousands of Customers.</p>
+        <a href="#contact" className="cta-button">
+          Get a Free Quote
+        </a>
       </div>
     </div>
   );

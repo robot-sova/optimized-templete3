@@ -4,80 +4,72 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background: black; /* Ensure the rest of the page remains black */
 }
 
 /* Parallax Background */
-.parallax-container {
-    height: 100vh;
-    width: 100%;
-    background: url('https://samedayappliance.repair/dryer-repair/dryer-page_header_photos.webp') no-repeat center center;
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
-    background-attachment: fixed; /* Parallax Effect */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
 }
 
-/* Overlay to enhance text readability */
-.parallax-container::before {
-    content: "";
+/* Dark Overlay */
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark Overlay */
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust for better contrast */
 }
 
-/* Centering Container */
-.gold-text-container {
-    position: relative;
-    z-index: 2; /* Ensures text is above the overlay */
-    text-align: center;
-}
-
-/* Gold Text Styling */
-.gold-title {
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
-    font-size: calc(5vw + 0.5rem);
-    font-weight: 700;
-    text-align: center;
-    margin: 0;
-    background: linear-gradient(to bottom, 
-        #cfc09f 27%, 
-        #ffecb3 40%, 
-        #3a2c0f 78%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: white;
-}
-
-/* Gold Depth Effect */
-.gold-title::after {
-    content: attr(data-heading);
+/* Centered Content */
+.content-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    text-shadow: 
-        -1px 0 1px #c6bb9f, 
-        0 1px 1px #c6bb9f, 
-        5px 5px 10px rgba(0, 0, 0, 0.4),
-        -5px -5px 10px rgba(0, 0, 0, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 700px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Prevents Overflow */
-.gold-title:focus {
-    outline: none;
+/* Headline */
+.content-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .gold-title {
-        font-size: calc(8vw + 0.5rem);
-    }
+/* Paragraph */
+.content-container p {
+    font-size: 1.2rem;
+    color: #d1d5db;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: #facc15; /* Yellow color */
+    color: black;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: #fbbf24; /* Slightly darker yellow */
 }
