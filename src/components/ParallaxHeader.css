@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Parallax Container */
+  .parallax {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Parallax Header */
+  .parallax__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Parallax Visuals */
+  .parallax__visuals {
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Layers */
+  .parallax__layers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .parallax__layer-img {
+    position: absolute;
+    width: 100%;
+    height: 117.5%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  
+  .parallax__layer-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Title */
+  .parallax__title {
+    font-family: 'PP Neue Corp Wide', sans-serif;
+    font-size: 11vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Overlay */
+  .parallax__fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, black 0%, transparent 100%);
+  }
+  
+  /* Content Section */
+  .parallax__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* SVG Icon */
+  .osmo-icon-svg {
+    width: 8em;
+    position: relative;
+  }
+  
