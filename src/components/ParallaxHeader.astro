@@ -1,16 +1,17 @@
-        <div class="main">
-            <div class="maintext">
-                <div class="main-right">
-                    <div class="main-right__top">
-                        <div class="main-right__top-text">
-                            <h1>Same Day Appliance Repair</h1>
-                            <p> Need fast, reliable appliance repair? Look no further! Our team offers same-day, expert repair services for all major home and commercial appliances, including refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, microwaves, ice machines, fireplaces, BBQ grills, cooktops, range hoods, walk-in coolers, HVAC systems, and more.</p>
-
-<p>We’re trusted by customers throughout Los Angeles and the surrounding areas to repair top brands like KitchenAid, Frigidaire, LG, Samsung, GE, Sub-Zero, Wolf, Cove, Whirlpool, Monogram, Miele, Bosch, Thermador, and many others. Our licensed, insured, and factory-trained technicians often carry parts in stock, meaning we can fix most appliance issues on the spot!</p>
+<!-- Parallax Section -->
+<div class="main">
+    <div class="maintext">
+        <div class="main-right">
+            <div class="main-right__top">
+                <div class="main-right__top-text">
+                    <h1>Same Day Appliance Repair</h1>
+                    <p>Need fast, reliable appliance repair? Look no further! Our team offers same-day, expert repair services for all major home and commercial appliances...</p>
+                    <p>We’re trusted by customers throughout Los Angeles to repair top brands like KitchenAid, Frigidaire, LG, Samsung, GE, Sub-Zero, Wolf, and more...</p>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+</div> <!-- ✅ This correctly closes .main -->
      
         <div class="menu">
             <a style="--clr: #7808d0" class="button" href="#price-list">
@@ -149,26 +150,27 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #0a0a0a;
     color: white;
+    overflow-x: hidden;
 }
 
-/* Background Section */
+/* Full-Screen Parallax Background */
 .main {
     position: relative;
+    height: 100vh; /* Fullscreen height */
     background: url("/bg.webp") no-repeat center center/cover;
-    min-height: 100vh;
     background-attachment: fixed;
     display: flex;
+    flex-direction: column; /* Stack content */
     justify-content: center;
     align-items: center;
-    padding: 60px 20px;
 }
 
-/* Subtle Background Overlay */
+/* Dark Overlay for Readability */
 .main::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.6);
     z-index: 0;
 }
 
@@ -179,17 +181,17 @@ body {
     max-width: 800px;
     border-radius: 12px;
     text-align: center;
-    background: url('/images/grass-texture.webp') no-repeat center center/cover; /* Grass texture */
+    background: url('/images/grass-texture.webp') no-repeat center center/cover;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     color: white;
-    border: 3px solid rgba(255, 255, 255, 0.2); /* Soft border */
+    border: 3px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     z-index: 1;
 }
 
 /* Headings */
 h1 {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
@@ -204,73 +206,21 @@ p {
     margin-bottom: 15px;
 }
 
-/* Image */
-.main-img {
-    width: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Image Hover */
-.main-img:hover {
-    transform: scale(1.03);
+/* ✅ Fix: Buttons Positioned at Bottom of Parallax */
+.menu {
+    position: absolute; /* Stays at bottom of .main */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2; /* Ensure it's above background */
+    padding: 10px;
 }
 
 /* Keep the Buttons Exactly the Same */
-.menu {
-    max-width: 350px;
-    margin: 0 auto 0 auto;
-    position: absolute;
-    bottom: 30px;
-    left: calc(50% - 350px);
-}
-
-@media (min-width: 768px) {
-    .menu {
-        max-width: 695px;
-        margin: 0 auto 0 auto;
-    }
-}
-
-/* Responsive */
-@media (max-width: 872px) {
-    .main {
-        flex-direction: column;
-        padding: 40px 20px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .menu {
-        position: relative;
-        bottom: 0;
-        padding-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .main-img {
-        display: none;
-    }
-}
-
-@media (max-width: 520px) {
-    .menu {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .button {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-
-/*-Buttons*/
-
 .button {
     line-height: 1;
     text-decoration: none;
@@ -288,7 +238,6 @@ p {
     text-overflow: ellipsis;
     transition: background-color .3s;
     width: 160px;
-    margin: 5px;
     border: 1px #ffffff solid;
 }
 
@@ -328,6 +277,34 @@ p {
     transform: translate(0);
 }
 
-/*-End Buttons*/
+/* Responsive */
+@media (max-width: 872px) {
+    .main {
+        flex-direction: column;
+        padding: 40px 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        bottom: 10px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
     </style>
