@@ -59,7 +59,7 @@ export const TabsAccordion = () => {
       style={{
         maxWidth: "1200px",
         margin: "20px auto",
-        border: "1px solid #ccc",
+        border: "2px solid #fff",
         borderRadius: "5px",
         overflow: "hidden",
 
@@ -71,7 +71,7 @@ export const TabsAccordion = () => {
           <div
             style={{
               flex: "1",
-              backgroundColor: "#003366",
+              backgroundColor: "#000",
               color: "white",
               display: "flex",
               flexDirection: "column",
@@ -86,7 +86,7 @@ export const TabsAccordion = () => {
                   padding: "15px",
                   cursor: "pointer",
                   textAlign: "left",
-                  borderBottom: "1px solid #004080",
+                  borderBottom: "1px solid #fff",
                   backgroundColor: activeTab === item.id ? "#004080" : "transparent",
                   transition: "background-color 0.3s ease",
                 }}
@@ -95,7 +95,7 @@ export const TabsAccordion = () => {
               </div>
             ))}
           </div>
-          <div style={{ flex: "3", padding: "20px", backgroundColor: "#ffffff" }}>
+          <div style={{ flex: "3", padding: "20px", backgroundColor: "#000000" }}>
             {items
               .filter((item) => item.id === activeTab)
               .map((item) => (
@@ -116,7 +116,7 @@ export const TabsAccordion = () => {
                   <button
                     style={{
                       padding: "10px 20px",
-                      backgroundColor: "#004080",
+                      backgroundColor: "#333",
                       color: "white",
                       border: "none",
                       borderRadius: "5px",
@@ -141,7 +141,7 @@ export const TabsAccordion = () => {
               style={{
                 borderBottom: "1px solid #ccc",
                 marginBottom: "10px",
-                backgroundColor: "#003366",
+                backgroundColor: "#000",
                 color: "white",
                 borderRadius: "5px",
                 overflow: "hidden",
@@ -153,7 +153,7 @@ export const TabsAccordion = () => {
                 style={{
                   padding: "15px",
                   cursor: "pointer",
-                  backgroundColor: activeTab === item.id ? "#004080" : "#003366",
+                  backgroundColor: activeTab === item.id ? "#000" : "#000",
                   transition: "background-color 0.3s ease",
                   display: "flex",
                   justifyContent: "space-between",
@@ -171,8 +171,8 @@ export const TabsAccordion = () => {
                 <div
                   style={{
                     padding: "15px",
-                    backgroundColor: "#ffffff",
-                    color: "#000",
+                    backgroundColor: "#000",
+                    
                   }}
                 >
                   <h2>{item.title}</h2>
