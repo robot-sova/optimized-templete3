@@ -14,16 +14,12 @@ const siteUrl = import.meta.env.SITE ?? 'http://localhost:4321';
 
 <style>
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
+  position: relative; /* Not fixed anymore */
+  width: 100%;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
   ul {
     list-style: none;
     margin: 0;
